@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc constant
- * @name IonicGulpSeed.API_ENDPOINT
+ * @name CanteenFeedback.API_ENDPOINT
  * @description
  * # API_ENDPOINT
  * Defines the API endpoint where our resources will make requests against.
@@ -10,7 +10,7 @@
  */
 
 
-angular.module('IonicGulpSeed')
+angular.module('CanteenFeedback')
 
     // development
     .constant('API_ENDPOINT', {

@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name IonicGulpSeed.controller:HomeController
+ * @name CanteenFeedback.controller:HomeController
  * @description
  * # HomeController
  */
-angular.module('IonicGulpSeed')
+angular.module('CanteenFeedback')
     .controller('HomeController', function($scope, ExampleService) {
 
         $scope.myHTML = null;

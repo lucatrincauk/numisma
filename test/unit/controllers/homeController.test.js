@@ -1,7 +1,7 @@
 describe('HomeController', function(){
 	var controller, scope, ExampleService;
 
-	beforeEach(module('IonicGulpSeed'));
+	beforeEach(module('CanteenFeedback'));
 	beforeEach(module('AppTemplate'));
 
 	beforeEach(inject(function($rootScope, _$controller_, _ExampleService_){

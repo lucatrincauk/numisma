@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name IonicGulpSeed.serive:ExampleService
+ * @name CanteenFeedback.serive:ExampleService
  * @description
  * # ExampleService
  */
-angular.module('IonicGulpSeed')
+angular.module('CanteenFeedback')
     // use factory for services
     .factory('ExampleService', function($http, $timeout, $q) {
 

@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc service
- * @name IonicGulpSeed.ApiService
+ * @name CanteenFeedback.ApiService
  * @description
  * # ApiService
  * Retrieves correct api to make requests against.
@@ -14,7 +14,7 @@
  *                 })
  *
  */
-angular.module('IonicGulpSeed')
+angular.module('CanteenFeedback')
     .factory('ApiService', function($window, $http, API_ENDPOINT) {
 
         var _api = API_ENDPOINT;

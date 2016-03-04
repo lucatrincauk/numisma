@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc overview
- * @name IonicGulpSeed
+ * @name CanteenFeedback
  * @description
  * # Initializes main application and routing
  *
@@ -10,7 +10,7 @@
  */
 
 
-angular.module('IonicGulpSeed', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize'])
+angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize'])
 
     .run(function($ionicPlatform) {
 

@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name IonicGulpSeed.controller:SettingsController
+ * @name CanteenFeedback.controller:SettingsController
  * @description
  * # SettingsController
  */
-angular.module('IonicGulpSeed')
+angular.module('CanteenFeedback')
     .controller('SettingsController', function($scope) {
 
         // do something with $scope
