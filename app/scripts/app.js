@@ -10,7 +10,7 @@
  */
 
 
-angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize'])
+angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize', 'firebase'])
 
     .run(function($ionicPlatform) {
 
@@ -18,9 +18,10 @@ angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSaniti
             // save to use plugins here
         });
 
-        // add possible global event handlers here
+
 
     })
+    .constant('FirebaseUrl', 'https://canteen-feedback.firebaseio.com/')
 
     .config(function($httpProvider, $stateProvider, $urlRouterProvider) {
         // register $http interceptors, if any. e.g.
@@ -44,14 +45,24 @@ angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSaniti
                     }
                 }
             })
-            .state('app.settings', {
-                url: '/settings',
+            .state('app.feedback', {
+                url: '/feedback',
                 cache: true,
                 views: {
                     'viewContent': {
-                        templateUrl: 'templates/views/settings.html',
-                        controller: 'SettingsController'
+                        templateUrl: 'templates/views/feedback.html',
+                        controller: 'FeedbackController'
                     }
+                },
+                resolve: {
+                  auth: function($state, AuthService){
+                    return AuthService.$requireAuth();
+                  },
+                  profile: function(AuthService, Users){
+                    return AuthService.$requireAuth().then(function(auth){
+                      return Users.getProfile(auth.uid).$loaded();
+                    });
+                  }
                 }
             });
 
@@ -59,5 +70,3 @@ angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSaniti
         // redirects to default route for undefined routes
         $urlRouterProvider.otherwise('/app/home');
     });
-
-
