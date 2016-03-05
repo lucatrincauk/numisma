@@ -7,11 +7,13 @@
     <ion-content>
         <div class="list">
 
-            <!-- connect toggles to controller using ng-model -->
 
-            <form class="" action="index.html" method="post">
-                <ion-radio ng-model="data.choice" ng-value="'happy'">Happy</ion-radio>
-                <ion-radio ng-model="data.choice" ng-value="'unhappy'">Unhappy</ion-radio>
+            <form ng-submit="addFeedback()">
+                <ion-radio ng-model="newFeedback.choice" ng-value="'happy'">Happy</ion-radio>
+                <ion-radio ng-model="newFeedback.choice" ng-value="'unhappy'">Unhappy</ion-radio>
+
+                <input type="submit" class="btn btn-default" value="Submit feedbvack">
+
             </form>
 
         </div>

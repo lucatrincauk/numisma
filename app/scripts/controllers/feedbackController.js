@@ -7,7 +7,21 @@
  * # FeedbackController
  */
 angular.module('CanteenFeedback')
-    .controller('FeedbackController', function($scope, auth, profile) {
-      console.log(auth);
-      console.log(profile)
+    .controller('FeedbackController', function($scope, feedbacks) {
+
+      $scope.feedbacks = feedbacks;
+      $scope.newFeedback = {
+        choice: ''
+      };
+
+
+      $scope.addFeedback = function() {
+        $scope.feedbacks.$add($scope.newFeedback).then(function(){
+          $scope.newFeedback = {
+            choice: ''
+          };
+        });
+      };
+
+
     });

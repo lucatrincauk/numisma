@@ -43,7 +43,13 @@ angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSaniti
                         templateUrl: 'templates/views/home.html',
                         controller: 'HomeController'
                     }
+                },
+                resolve: {
+                  feedbacks: function (Feedbacks){
+                    return Feedbacks.getAllFeedbacks().$loaded();
+                  }
                 }
+
             })
             .state('app.feedback', {
                 url: '/feedback',
@@ -55,15 +61,11 @@ angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSaniti
                     }
                 },
                 resolve: {
-                  auth: function($state, AuthService){
-                    return AuthService.$requireAuth();
-                  },
-                  profile: function(AuthService, Users){
-                    return AuthService.$requireAuth().then(function(auth){
-                      return Users.getProfile(auth.uid).$loaded();
-                    });
+                  feedbacks: function (Feedbacks){
+                    return Feedbacks.getTodaysFeedbacks().$loaded();
                   }
                 }
+
             });
 
 
