@@ -84,18 +84,18 @@ angular.module('Numisma', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize', 'fi
                     }
                 }
             })
-            .state('app.feedback', {
-                url: '/feedback',
+            .state('app.receiptsAdd', {
+                url: '/receipts/add',
                 cache: true,
                 views: {
                     'viewContent': {
-                        templateUrl: 'templates/views/feedback.html',
-                        controller: 'FeedbackController'
+                        templateUrl: 'templates/views/receiptsAdd.html',
+                        controller: 'ReceiptsAddController'
                     }
                 },
                 resolve: {
-                  feedbacks: function (Feedbacks){
-                    return Feedbacks.getTodaysFeedbacks().$loaded();
+                  receipts: function (Receipts){
+                    return Receipts.getAllReceipts().$loaded();
                   }
                 }
 
