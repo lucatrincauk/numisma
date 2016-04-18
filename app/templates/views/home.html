@@ -6,8 +6,20 @@
 
     <ion-content>
         <div class="content">
-            <div ng-repeat="receipt in receipts">
-                {{receipt}}
+            <div class="card" ng-repeat="receipt in receipts">
+              <div class="item item-divider">
+                {{receipt.store}}
+              </div>
+              <div class="item">
+                {{receipt.amount | currency : '£'}}
+              </div>
+              <div class="item">
+                <span am-time-ago="receipt.receiptDate"></span>
+
+              </div>
+              <div class="item">
+                {{receipt.uid}}
+              </div>
             </div>
         </div>
     </ion-content>

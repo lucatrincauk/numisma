@@ -10,7 +10,7 @@
  */
 
 
-angular.module('Numisma', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize', 'firebase'])
+angular.module('Numisma', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize', 'firebase', 'angularMoment'])
 
     .run(function($ionicPlatform, $rootScope, AuthService, $state, User) {
 
@@ -65,8 +65,8 @@ angular.module('Numisma', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize', 'fi
                     }
                 },
                 resolve: {
-                  feedbacks: function (Feedbacks){
-                    return Feedbacks.getAllFeedbacks().$loaded();
+                  receipts: function (Receipts){
+                    return Receipts.getAllReceipts().$loaded();
                   }
                 }
 

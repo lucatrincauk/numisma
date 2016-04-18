@@ -11,7 +11,7 @@ angular.module('Numisma')
 
 
     var getAllReceipts = function() {
-      return $firebaseArray(ref.child('receipts');
+      return $firebaseArray(ref.child('receipts'));
     };
 
     var receipts = {

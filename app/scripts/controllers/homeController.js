@@ -7,11 +7,9 @@
  * # HomeController
  */
 angular.module('Numisma')
-    .controller('HomeController', function($scope, feedbacks, AuthService) {
+    .controller('HomeController', function($scope, receipts, AuthService) {
 
-      $scope.feedbacks = feedbacks;
-      console.log(feedbacks)
-
-      // AuthService.loginWithGoogle();
+      $scope.receipts = receipts;
+      console.log(receipts)
 
     });
