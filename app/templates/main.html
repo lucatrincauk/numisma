@@ -16,6 +16,12 @@
 
         <ion-content class="has-header">
             <div class="list">
+               <li ng-if="user" class="item item-thumbnail-left menu-avatar">
+                  <img ng-if="user.google.profileImageURL" ng-src="{{user.google.profileImageURL}}">
+                  <img ng-if="!user.google.profileImageURL" ng-src="images/_default-user.jpg">
+                  <h2><strong>{{user.google.displayName}}</strong></h2>
+                  <p>{{user.uid}}</p>
+                </li>
                 <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.home">
                     <i class="icon ion-home"></i>
                     Home
@@ -23,6 +29,10 @@
                 <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.feedback">
                     <i class="icon ion-settings"></i>
                     Feedback
+                </a>
+                <a ng-if="user" menu-close class="item item-icon-left" ui-sref-active="active" ng-click="logout()">
+                    <i class="icon ion-settings"></i>
+                    Logout
                 </a>
             </div>
         </ion-content>

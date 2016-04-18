@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name CanteenFeedback.controller:FeedbackController
+ * @name Numisma.controller:FeedbackController
  * @description
  * # FeedbackController
  */
-angular.module('CanteenFeedback')
+angular.module('Numisma')
     .controller('FeedbackController', function($scope, feedbacks) {
 
       $scope.feedbacks = feedbacks;

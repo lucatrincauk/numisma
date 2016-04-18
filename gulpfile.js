@@ -1,7 +1,7 @@
 'use strict';
 
 // change this to your app's name (angular module)
-var appName = 'CanteenFeedback';
+var appName = 'Numisma';
 
 
 var gulp = require('gulp');

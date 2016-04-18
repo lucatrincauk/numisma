@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc constant
- * @name CanteenFeedback.API_ENDPOINT
+ * @name Numisma.API_ENDPOINT
  * @description
  * # API_ENDPOINT
  * Defines the API endpoint where our resources will make requests against.
@@ -10,7 +10,7 @@
  */
 
 
-angular.module('CanteenFeedback')
+angular.module('Numisma')
 
     // development
     .constant('API_ENDPOINT', {

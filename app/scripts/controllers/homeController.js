@@ -2,14 +2,16 @@
 
 /**
  * @ngdoc function
- * @name CanteenFeedback.controller:HomeController
+ * @name Numisma.controller:HomeController
  * @description
  * # HomeController
  */
-angular.module('CanteenFeedback')
-    .controller('HomeController', function($scope, feedbacks) {
+angular.module('Numisma')
+    .controller('HomeController', function($scope, feedbacks, AuthService) {
 
       $scope.feedbacks = feedbacks;
       console.log(feedbacks)
+
+      // AuthService.loginWithGoogle();
 
     });

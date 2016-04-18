@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name CanteenFeedback.service:Feedbacks
+ * @name Numisma.service:Feedbacks
  */
-angular.module('CanteenFeedback')
+angular.module('Numisma')
   .factory('Feedbacks', function($firebaseArray, FirebaseUrl) {
 
 

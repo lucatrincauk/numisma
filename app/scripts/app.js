@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc overview
- * @name CanteenFeedback
+ * @name Numisma
  * @description
  * # Initializes main application and routing
  *
@@ -10,18 +10,38 @@
  */
 
 
-angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize', 'firebase'])
+angular.module('Numisma', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize', 'firebase'])
 
-    .run(function($ionicPlatform) {
+    .run(function($ionicPlatform, $rootScope, AuthService, $state, User) {
 
         $ionicPlatform.ready(function() {
             // save to use plugins here
         });
+        var hasRedirected = false;
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+          if (toState.name !== 'app.login' && !User.getProfile()) {
+            event.preventDefault();
+            console.log(event)
+            AuthService.getAuth().then(function(response) {
+              console.log('successful login')
+              if (!hasRedirected) {
+                console.log('first time success')
+                $state.go(toState)
+                hasRedirected = true;
+              }
+            }, function(error) {
+              console.log('failed login')
+              $state.go('app.login', {'route': toState.name});
+            })
+          }
+        });
+
+
 
 
 
     })
-    .constant('FirebaseUrl', 'https://canteen-feedback.firebaseio.com/')
+    .constant('FirebaseUrl', 'https://numisma.firebaseio.com/')
 
     .config(function($httpProvider, $stateProvider, $urlRouterProvider) {
         // register $http interceptors, if any. e.g.
@@ -50,6 +70,19 @@ angular.module('CanteenFeedback', ['ionic', 'ngCordova', 'ngResource', 'ngSaniti
                   }
                 }
 
+            })
+            .state('app.login', {
+                url: '/login',
+                cache: true,
+                params: {
+                  'route': null
+                },
+                views: {
+                    'viewContent': {
+                        templateUrl: 'templates/views/login.html',
+                        controller: 'LoginController'
+                    }
+                }
             })
             .state('app.feedback', {
                 url: '/feedback',

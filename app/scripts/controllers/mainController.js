@@ -2,14 +2,21 @@
 
 /**
  * @ngdoc function
- * @name CanteenFeedback.controller:MainController
+ * @name Numisma.controller:MainController
  * @description
  * # MainController
  * This controller handles the side menu
  */
-angular.module('CanteenFeedback')
-    .controller('MainController', function($scope) {
+angular.module('Numisma')
+    .controller('MainController', function($scope, AuthService, $state, User) {
 
-        // do something with $scope
+      $scope.logout = function() {
+        AuthService.logout();
+        User.removeProfile();
+        $state.go('app.login');
+      }
+
+      $scope.user = User.getProfile();
+      
 
     });
